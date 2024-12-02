@@ -15,6 +15,8 @@ jobs:
           java-version: "14"
       - name: Build project with Maven
         run: mvn -B compile --file pom.xml
+      - name: List contents of target folder
+        run: ls -l ${GITHUB_WORKSPACE}/target
 
   verify:
     needs: build
@@ -30,7 +32,7 @@ jobs:
         run: mvn -B verify --file pom.xml
       - name: List generated WAR file
         run: ls ${GITHUB_WORKSPACE}/target/*.war
-      - name: Copy the WAR file
-        run: |
-          mkdir -p ${GITHUB_WORKSPACE}/artifacts
-          cp ${GITHUB_WORKSPACE}/target/*.war ${GITHUB_WORKSPACE}/artifacts/
+      # - name: Copy the WAR file
+      #   run: |
+      #     mkdir -p ${GITHUB_WORKSPACE}/artifacts
+      #     cp ${GITHUB_WORKSPACE}/target/*.war ${GITHUB_WORKSPACE}/artifacts/
