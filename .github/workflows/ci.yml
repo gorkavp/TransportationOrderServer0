@@ -30,9 +30,9 @@ jobs:
           java-version: 14
       - name: Run all defined tests and generate WAR with Maven
         run: mvn -B verify --file pom.xml
-      - name: List generated WAR file
-        run: ls ${GITHUB_WORKSPACE}/target/*.war
-      # - name: Copy the WAR file
-      #   run: |
-      #     mkdir -p ${GITHUB_WORKSPACE}/artifacts
-      #     cp ${GITHUB_WORKSPACE}/target/*.war ${GITHUB_WORKSPACE}/artifacts/
+      # - name: List generated WAR file
+      #   run: ls ${GITHUB_WORKSPACE}/target/*.war
+      - name: Copy the WAR file
+        run: |
+          mkdir -p ${GITHUB_WORKSPACE}/artifacts
+          cp ${GITHUB_WORKSPACE}/target/*.war ${GITHUB_WORKSPACE}/artifacts/
