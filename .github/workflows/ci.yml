@@ -94,5 +94,5 @@ jobs:
       # Display deployments in the cluster
       - run: "kubectl get deployments"
 
-      # Diisplay running pods
+      # Display running pods
       - run: "kubectl get pods"
